@@ -1,6 +1,6 @@
-# GowHunter
-Hacks Gems of War treasure hunt mode
-How to use
+# GowHunter  
+Hacks Gems of War treasure hunt mode  
+How to use  
 1. Download from [https://github.com/daily2432121/GowHunter/release/latest.zip]  
 2. Start GoWHunter.WinForm.exe as Adminitrator  
 3. Click Hack! to start  
