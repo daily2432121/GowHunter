@@ -1,40 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using Fiddler;
-using Newtonsoft.Json;
 using static Fiddler.FiddlerApplication;
 
 namespace GoWHunter
 {
-    public class ReplaceItem
-    {
-        public string RegEx { get; set; }
-        public string Keyword { get; set; }
-        public string ReplaceWith { get; set; }
-    }
-
-    public class ReplaceSet
-    {
-        public string Url { get; set; }
-        public List<ReplaceItem> ReplaceItems { get; set; }
-    }
-
-    public class ReplaceConfig
-    {
-        public string ConfigName { get; set; }
-        public List<ReplaceSet> ReplaceSets { get; set; }
-
-        public static ReplaceConfig GenerateFromJson(string fileName)
-        {
-            return JsonConvert.DeserializeObject<ReplaceConfig>(File.ReadAllText(fileName));
-        }
-    }
-
-
     public class LiteFiddlerApp
     {
         private string _cert;
