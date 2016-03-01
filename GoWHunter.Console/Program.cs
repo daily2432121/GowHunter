@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
 using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 using Con = System.Console;
+
 namespace GoWHunter.Console
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             if (!IsUserAdministrator())
             {
@@ -18,7 +16,8 @@ namespace GoWHunter.Console
                 return;
             }
 
-            LiteFiddlerApp app = new LiteFiddlerApp();
+            var app = new LiteFiddlerApp(ReplaceConfig.GenerateFromJson("HackList.json"),
+                int.Parse(ConfigurationManager.AppSettings["FiddlerPort"]));
             app.Listen();
             Con.ReadKey();
             app.Stop();
@@ -34,24 +33,22 @@ namespace GoWHunter.Console
             {
                 //get the currently logged in user
                 user = WindowsIdentity.GetCurrent();
-                WindowsPrincipal principal = new WindowsPrincipal(user);
+                var principal = new WindowsPrincipal(user);
                 isAdmin = principal.IsInRole(WindowsBuiltInRole.Administrator);
             }
-            catch (UnauthorizedAccessException ex)
+            catch (UnauthorizedAccessException)
             {
                 isAdmin = false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 isAdmin = false;
             }
             finally
             {
-                if (user != null)
-                    user.Dispose();
+                user?.Dispose();
             }
             return isAdmin;
         }
     }
-
 }
