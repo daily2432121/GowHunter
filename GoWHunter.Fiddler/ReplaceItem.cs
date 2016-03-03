@@ -1,4 +1,4 @@
-namespace GoWHunter
+namespace GoWHunter.Fiddler
 {
     public class ReplaceItem
     {

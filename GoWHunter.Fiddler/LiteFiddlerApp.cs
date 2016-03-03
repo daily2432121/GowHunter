@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using Fiddler;
 using static Fiddler.FiddlerApplication;
 
-namespace GoWHunter
+namespace GoWHunter.Fiddler
 {
     public class LiteFiddlerApp
     {
@@ -14,6 +15,12 @@ namespace GoWHunter
         private string _key;
         private readonly int _port;
         private readonly List<ReplaceSet> _replaceSets;
+        private List<TamperSender> _tamperSenders = new List<TamperSender>();
+
+        public void AddTamperSender(TamperSender sender)
+        {
+            _tamperSenders.Add(sender);
+        }
 
         public LiteFiddlerApp(ReplaceConfig config, int port)
         {
@@ -27,6 +34,7 @@ namespace GoWHunter
 
         public void Listen()
         {
+            
             BeforeResponse += App_BeforeResponse;
             BeforeRequest += App_BeforeRequest;
             InstallCertificate();
@@ -111,6 +119,25 @@ namespace GoWHunter
             _cert = null;
             _key = null;
             return true;
+        }
+
+
+        private void ImportSessions(List<Session> oAllSessions)
+        {
+            TranscoderTuple oImporter = oTranscoders.GetImporter("SAZ");
+            if (null != oImporter)
+            {
+                Dictionary<string, object> dictOptions = new Dictionary<string, object>();
+                dictOptions.Add("Filename", Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\ToLoad.saz");
+
+                Session[] oLoaded = DoImport("SAZ", false, dictOptions, null);
+
+                if ((oLoaded != null) && (oLoaded.Length > 0))
+                {
+                    oAllSessions.AddRange(oLoaded);
+                    Console.WriteLine("Loaded: " + oLoaded.Length + " sessions.");
+                }
+            }
         }
     }
 }

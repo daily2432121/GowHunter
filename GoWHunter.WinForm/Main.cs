@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Windows.Forms;
+using GoWHunter.Fiddler;
 using MaterialSkin;
 using MaterialSkin.Controls;
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GoWHunter
+namespace GoWHunter.Fiddler
 {
     public class ReplaceSet
     {

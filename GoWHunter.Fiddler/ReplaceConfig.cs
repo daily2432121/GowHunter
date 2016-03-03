@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace GoWHunter
+namespace GoWHunter.Fiddler
 {
     public class ReplaceConfig
     {
