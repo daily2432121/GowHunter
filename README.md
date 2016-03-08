@@ -1,7 +1,7 @@
 # GowHunter - Treasure Hunter WinForm App
 Hacks Gems of War treasure hunt mode  
 How to use  
-1. Download from [https://github.com/daily2432121/GowHunter/blob/master/releases/WinForm/latest.zip?raw=true]  
+1. Download from https://github.com/daily2432121/GowHunter/blob/master/releases/WinForm/latest.zip?raw=true  
 2. Start GoWHunter.WinForm.exe as Adminitrator  
 3. Click Hack! to start  
   3.1 You may need to truse Fiddler certificate  
@@ -14,7 +14,7 @@ How to use
 # GowHunter - Treasure Hunter Console App  
 Hacks Gems of War treasure hunt mode in super zuosi mode  
 How to use  
-1. Download from [https://github.com/daily2432121/GowHunter/blob/master/releases/Console/latest.zip?raw=true]  
+1. Download from https://github.com/daily2432121/GowHunter/blob/master/releases/Console/latest.zip?raw=true  
 2. Start GoWHunter.Console in cmd, pass your username hash, password hash and treasure hunt times  
   e.g. GoWHunter.Console "ABVjei2ni2" "Uhu2e4b9uD" 50  
 3. Wait the console to finish  
