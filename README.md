@@ -13,5 +13,5 @@ How to use
 
 # GowHunter - Treasure Hunter Console App
 Hacks Gems of War treasure hunt mode  
-1. TBD
+(TBD)
 
