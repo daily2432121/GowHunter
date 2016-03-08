@@ -1,4 +1,4 @@
-# GowHunter  
+# GowHunter - Treasure Hunter WinForm App
 Hacks Gems of War treasure hunt mode  
 How to use  
 1. Download from [https://github.com/daily2432121/GowHunter/blob/master/releases/latest.zip?raw=true]  
@@ -9,3 +9,9 @@ How to use
 5. You should see your loots boooooost  
 6. Click Stop! to stop, Exit! to exit  
 7. If you network is borked after running this app, restart this app and close it  
+
+
+# GowHunter - Treasure Hunter Treasure Hunter Console App
+Hacks Gems of War treasure hunt mode  
+1. TBD
+
