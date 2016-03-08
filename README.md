@@ -19,5 +19,7 @@ How to use
   e.g. GoWHunter.Console "ABVjei2ni2" "Uhu2e4b9uD" 50  
 3. Wait the console to finish  
 4. Login your game, check result  
+  
+![Console zuosi pic](https://raw.githubusercontent.com/daily2432121/GowHunter/master/Demo/Consolepic1.PNG)
 
 
