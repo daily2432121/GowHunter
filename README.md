@@ -11,13 +11,13 @@ How to use
 7. If you network is borked after running this app, restart this app and close it  
 
 
-# GowHunter - Treasure Hunter Console App
-Hacks Gems of War treasure hunt mode in super zuosi mode
-How to use
-1. Download the latest release
-2. Start GoWHunter.Console in cmd, pass your username hash, password hash and treasure hunt times
-  e.g. GoWHunter.Console "ABVjei2ni2" "Uhu2e4b9uD" 50
-3. Wait the console to finish
-4. Login your game, check result
+# GowHunter - Treasure Hunter Console App  
+Hacks Gems of War treasure hunt mode in super zuosi mode  
+How to use  
+1. Download the latest release  
+2. Start GoWHunter.Console in cmd, pass your username hash, password hash and treasure hunt times  
+  e.g. GoWHunter.Console "ABVjei2ni2" "Uhu2e4b9uD" 50  
+3. Wait the console to finish  
+4. Login your game, check result  
 
 
