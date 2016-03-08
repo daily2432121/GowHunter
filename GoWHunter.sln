@@ -9,6 +9,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoWHunter.Console", "GoWHun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoWHunter.WinForm", "GoWHunter.WinForm\GoWHunter.WinForm.csproj", "{E9C5F3E3-1C71-4643-B00A-5ABB3EEF547D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoWHunter.World", "GoWHunter.World\GoWHunter.World.csproj", "{CCDAB54E-C6F7-4398-B7EF-421A137FACBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoWHunter.MVC", "GoWHunter.MVC\GoWHunter.MVC.csproj", "{D945037C-1F80-4048-9585-80B9CDEA2EBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{C4F9108B-4B7B-4306-81F4-57AB940F314E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{043E796D-E8B2-4960-9002-340466E3168C}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1 = PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{4DA7A0EF-B275-491E-8AAB-0B22EC71111F}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Templates\GoWHunterMVC.json = PublishScripts\Templates\GoWHunterMVC.json
+		PublishScripts\Templates\GoWHunterMVC.param.dev.json = PublishScripts\Templates\GoWHunterMVC.param.dev.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoWHunter.WebJob", "GoWHunter.WebJob\GoWHunter.WebJob.csproj", "{AD8B71AD-969C-4064-93B0-A1BA85CE692F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +46,24 @@ Global
 		{E9C5F3E3-1C71-4643-B00A-5ABB3EEF547D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9C5F3E3-1C71-4643-B00A-5ABB3EEF547D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9C5F3E3-1C71-4643-B00A-5ABB3EEF547D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCDAB54E-C6F7-4398-B7EF-421A137FACBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCDAB54E-C6F7-4398-B7EF-421A137FACBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCDAB54E-C6F7-4398-B7EF-421A137FACBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCDAB54E-C6F7-4398-B7EF-421A137FACBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D945037C-1F80-4048-9585-80B9CDEA2EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D945037C-1F80-4048-9585-80B9CDEA2EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D945037C-1F80-4048-9585-80B9CDEA2EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D945037C-1F80-4048-9585-80B9CDEA2EBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD8B71AD-969C-4064-93B0-A1BA85CE692F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD8B71AD-969C-4064-93B0-A1BA85CE692F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD8B71AD-969C-4064-93B0-A1BA85CE692F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD8B71AD-969C-4064-93B0-A1BA85CE692F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{043E796D-E8B2-4960-9002-340466E3168C} = {C4F9108B-4B7B-4306-81F4-57AB940F314E}
+		{4DA7A0EF-B275-491E-8AAB-0B22EC71111F} = {C4F9108B-4B7B-4306-81F4-57AB940F314E}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,206 @@
+{
+    "Runes": {
+        "RuneItems": [
+            {
+                "Tag": "[RUNE00_NAME]",
+                "Text": "Minor Water Traitstone",
+				"Rarity": 0
+            },
+            {
+                "Tag": "[RUNE01_NAME]",
+                "Text": "Minor Nature Traitstone",
+				"Rarity": 0
+            },
+            {
+                "Tag": "[RUNE02_NAME]",
+                "Text": "Minor Fire Traitstone",
+				"Rarity": 0
+            },
+            {
+                "Tag": "[RUNE03_NAME]",
+                "Text": "Minor Wind Traitstone",
+				"Rarity": 0
+            },
+            {
+                "Tag": "[RUNE04_NAME]",
+                "Text": "Minor Magic Traitstone",
+				"Rarity": 0
+            },
+            {
+                "Tag": "[RUNE05_NAME]",
+                "Text": "Minor Earth Traitstone",
+				"Rarity": 0
+            },
+            {
+                "Tag": "[RUNE06_NAME]",
+                "Text": "Major Water Traitstone",
+				"Rarity": 1
+            },
+            {
+                "Tag": "[RUNE07_NAME]",
+                "Text": "Major Nature Traitstone",
+				"Rarity": 1
+            },
+            {
+                "Tag": "[RUNE08_NAME]",
+                "Text": "Major Fire Traitstone",
+				"Rarity": 1
+            },
+            {
+                "Tag": "[RUNE09_NAME]",
+                "Text": "Major Wind Traitstone",
+				"Rarity": 1
+            },
+            {
+                "Tag": "[RUNE10_NAME]",
+                "Text": "Major Magic Traitstone",
+				"Rarity": 1
+            },
+            {
+                "Tag": "[RUNE11_NAME]",
+                "Text": "Major Earth Traitstone",
+				"Rarity": 1
+            },
+            {
+                "Tag": "[RUNE12_NAME]",
+                "Text": "Runic Water Traitstone",
+				"Rarity": 2
+            },
+            {
+                "Tag": "[RUNE13_NAME]",
+                "Text": "Runic Nature Traitstone",
+				"Rarity": 2
+            },
+            {
+                "Tag": "[RUNE14_NAME]",
+                "Text": "Runic Fire Traitstone",
+				"Rarity": 2
+            },
+            {
+                "Tag": "[RUNE15_NAME]",
+                "Text": "Runic Wind Traitstone",
+				"Rarity": 2
+            },
+            {
+                "Tag": "[RUNE16_NAME]",
+                "Text": "Runic Magic Traitstone",
+				"Rarity": 2
+            },
+            {
+                "Tag": "[RUNE17_NAME]",
+                "Text": "Runic Earth Traitstone",
+				"Rarity": 2
+            },
+            {
+                "Tag": "[RUNE18_NAME]",
+                "Text": "Arcane Stoic Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE19_NAME]",
+                "Text": "Arcane Swamp Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE20_NAME]",
+                "Text": "Arcane Blood Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE21_NAME]",
+                "Text": "Arcane Blade Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE22_NAME]",
+                "Text": "Arcane Spirit Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE23_NAME]",
+                "Text": "Arcane Shield Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE24_NAME]",
+                "Text": "Arcane Stealth Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE25_NAME]",
+                "Text": "Arcane Beast Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE26_NAME]",
+                "Text": "Arcane Light Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE27_NAME]",
+                "Text": "Arcane Venom Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE28_NAME]",
+                "Text": "Arcane Forest Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE29_NAME]",
+                "Text": "Arcane Rage Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE30_NAME]",
+                "Text": "Arcane Storm Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE31_NAME]",
+                "Text": "Arcane Dark Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE32_NAME]",
+                "Text": "Arcane Lava Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE33_NAME]",
+                "Text": "Arcane Summer Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE34_NAME]",
+                "Text": "Arcane Plains Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE35_NAME]",
+                "Text": "Arcane Mountain Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE36_NAME]",
+                "Text": "Arcane Death Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE37_NAME]",
+                "Text": "Arcane Skull Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE38_NAME]",
+                "Text": "Arcane Deep Traitstone",
+				"Rarity": 3
+            },
+            {
+                "Tag": "[RUNE39_NAME]",
+                "Text": "Celestial Traitstone",
+				"Rarity": 4
+            }
+        ]
+    }
+}

@@ -1,0 +1,8 @@
+<publishData>
+  <publishProfile  publishUrl="https://gow.mengmeizi.com:8172/msdeploy.axd"
+ msdeploySite="daily2432121-001-subsite3"
+ destinationAppUrl="http://gow.mengmeizi.com/"
+ profileName="Default Settings"
+ publishMethod="MSDeploy"
+ userName="ifc\daily2432121-001" />
+</publishData>

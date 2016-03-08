@@ -1,0 +1,161 @@
+﻿
+
+@{
+    ViewBag.Title = "Gems of War Drop Rate Table";
+}
+<h2>Welcome to @ViewBag.Title</h2>
+<h3 id="LocalTimeMsg"></h3>
+
+<input hidden value="@ViewBag.LastUpdated" id="UtcTime"/>
+<div class="btn-group" id="checkChestsGroup" data-toggle="buttons">
+    <label class="btn btn-primary active" id="checkAllChests" chest ="">
+        <input type="radio" name="chestOptions"  autocomplete="off" checked> All Chests
+    </label>
+    <label class="btn btn-primary" id="checkGoldChest" chest="Gold">
+        <input type="radio" name="chestOptions"  autocomplete="off"> Gold Chest
+    </label>
+    <label class="btn btn-primary" id="checkGloryChest" chest="Glory">
+        <input type="radio" name="chestOptions"  autocomplete="off"> Glory Chest
+    </label>
+    <label class="btn btn-primary" id="checkGemChest" chest="Gem">
+        <input type="radio" name="chestOptions"  autocomplete="off"> Gem Chest
+    </label>
+    <label class="btn btn-primary" id="checkEventChest" chest="Event">
+        <input type="radio" name="chestOptions"  autocomplete="off"> Event Chest
+    </label>
+    <label class="btn btn-primary" id="checkVIPChest" chest="VIP">
+        <input type="radio" name="chestOptions"  autocomplete="off"> VIP Chest
+    </label>
+
+</div>
+
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="dropTable">
+    <thead>
+    <tr>
+        <th>
+            ChestNumber
+        </th>
+        <th>
+            Chest
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Type
+        </th>
+        <th>
+            Expectation
+        </th>
+        <th>
+            Chance
+        </th>
+        <th>
+            Stars
+        </th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>
+            ChestNumber
+        </th>
+        <th>
+            Chest
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Type
+        </th>
+        <th>
+            Expectation
+        </th>
+        <th>
+            Chance
+        </th>
+        <th>
+            Stars
+        </th>
+    </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in ViewBag.DropTable)
+        {
+
+            <tr>
+                <th>
+                    @item.ChestNumber
+                </th>
+                <th>
+                    @item.Chest
+                </th>
+                <th>
+                    @item.Name
+                </th>
+                <th>
+                    @item.Type
+                </th>
+                <th>
+                    @string.Format("{0:0.0000}",item.Expectation)
+                </th>
+                <th>
+                    @string.Format("{0:P4}",item.Chance)
+                </th>
+                <th>
+                    @item.Stars
+                </th>
+            </tr>        
+            
+            
+        }
+    </tbody>
+</table>
+
+    <h2>@ViewBag.Title</h2>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jquery")
+        <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.1.0/css/buttons.dataTables.min.css"/>
+        <script>
+            var table;
+            $(document).ready(function() {
+
+                $('#dropTable tfoot th').each(function() {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+                });
+
+                table = $('#dropTable').DataTable({
+                    "buttons": ['copy', 'csv', 'excel', 'pdf', 'print'],
+                    "paging": false
+                });
+
+                table.columns().every(function() {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change', function() {
+                        if (that.search() !== this.value) {
+                            that
+                                .search(this.value)
+                                .draw();
+                        }
+                    });
+                });
+
+
+                $('#checkChestsGroup label').on("click", function() {
+                    console.log(this.getAttribute("chest") + "selected");
+                    table.column(1).search(this.getAttribute("chest")).draw();
+                });
+
+                var utcTime = $("#UtcTime").val();
+                var date = new Date(utcTime);
+                $("#LocalTimeMsg").text("Last Updated: "+ date.toString());
+            });
+
+
+        </script>
+    }

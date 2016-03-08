@@ -1,0 +1,15 @@
+﻿{
+   "ConfigName":"GowHunterHack",
+   "ReplaceSets":[
+      {
+         "Url":"gemsofwar.parseapp.com/call_function",
+         "ReplaceItems":[
+            {
+               "RegEx":"\"FinalGems\":\\[\\[.*\\]\\],",
+               "Keyword":"submit_loot",
+               "ReplaceWith":"\"FinalGems\":[[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7]],"
+            }
+         ]
+      }
+   ]
+}

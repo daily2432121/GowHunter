@@ -1,80 +1,89 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
 using Fiddler;
 using static Fiddler.FiddlerApplication;
 
-namespace GoWHunter
+namespace GoWHunter.Fiddler
 {
     public class LiteFiddlerApp
     {
         private string _cert;
         private string _key;
+        private readonly int _port;
+        private readonly List<ReplaceSet> _replaceSets;
+        private List<TamperSender> _tamperSenders = new List<TamperSender>();
 
-        public void Listen()
+        public void AddTamperSender(TamperSender sender)
         {
-            //App.OnNotification += AppOnOnNotification;
-            BeforeResponse += App_BeforeResponse;
-            BeforeRequest += App_BeforeRequest;
-            InstallCertificate();
-            Prefs.SetBoolPref("fiddler.echoservice.enabled", true);
-            Startup(8887, FiddlerCoreStartupFlags.Default);
-            
+            _tamperSenders.Add(sender);
+        }
 
+        public LiteFiddlerApp(ReplaceConfig config, int port)
+        {
+            _replaceSets = config.ReplaceSets;
+            _port = port;
         }
 
         public bool IsStarted => IsStarted();
 
         public bool IsClosing => isClosing;
 
-
-        void App_BeforeRequest(Session oSession)
+        public void Listen()
         {
-            //oSession.bBufferResponse = true;
-            Monitor.Enter(oSession);
-            var regex = new Regex(@"""FinalGems"":\[\[.*\]\],");
-            var callFunctionUrl = "gemsofwar.parseapp.com/call_function";
-            var keyword = "submit_loot";
-            string hackString =
-                @"""FinalGems"":[[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7],[7,7,7,7,7,7,7,7]],";
-            if (oSession.uriContains(callFunctionUrl))
+            
+            BeforeResponse += App_BeforeResponse;
+            BeforeRequest += App_BeforeRequest;
+            InstallCertificate();
+            Prefs.SetBoolPref("fiddler.echoservice.enabled", true);
+            Startup(_port, FiddlerCoreStartupFlags.Default);
+        }
+
+
+        private void App_BeforeRequest(Session oSession)
+        {
+            var body = Encoding.UTF8.GetString(oSession.requestBodyBytes);
+            foreach (var set in _replaceSets)
             {
-                string body = Encoding.UTF8.GetString(oSession.requestBodyBytes);
-                if (!body.Contains(keyword) || body.Contains(hackString)) { return; }
-                string newBody = regex.Replace(body, hackString);
-                oSession.utilSetRequestBody(newBody);
+                var callFunctionUrl = set.Url;
+                foreach (var item in set.ReplaceItems)
+                {
+                    var hackString = item.ReplaceWith;
+                    var regex = item.RegEx;
+                    var keyword = item.Keyword;
+                    if (!oSession.uriContains(callFunctionUrl)) continue;
+                    if (!body.Contains(keyword) || body.Contains(hackString))
+                    {
+                        return;
+                    }
+                    body = regex.Replace(body, hackString);
+                }
             }
-            Monitor.Exit(oSession);
+            oSession.utilSetRequestBody(body);
         }
 
 
         public void Stop()
         {
             BeforeResponse -= App_BeforeResponse;
-            if (IsStarted)
-                try
-                {
-                    Shutdown();
-                    Thread.Sleep(500);
-                }
-                catch
-                {
-                    oProxy.Detach();
-                }
+            if (!IsStarted) return;
+            try
+            {
+                Shutdown();
+                Thread.Sleep(500);
+            }
+            catch
+            {
+                oProxy.Detach();
+            }
         }
 
         private void App_BeforeResponse(Session oSession)
         {
-
         }
-
-        private void AppOnOnNotification(object sender, NotificationEventArgs notificationEventArgs)
-        {
-            throw new NotImplementedException();
-        }
-
 
         public bool InstallCertificate()
         {
@@ -84,12 +93,9 @@ namespace GoWHunter
                 {
                     return false;
                 }
-                else
-                {
-                    Console.WriteLine("Certificate is created.");
-                }
+                Console.WriteLine("Certificate is created.");
             }
-            X509Store certStore = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
+            var certStore = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
             certStore.Open(OpenFlags.ReadWrite);
             try
             {
@@ -113,6 +119,25 @@ namespace GoWHunter
             _cert = null;
             _key = null;
             return true;
+        }
+
+
+        private void ImportSessions(List<Session> oAllSessions)
+        {
+            TranscoderTuple oImporter = oTranscoders.GetImporter("SAZ");
+            if (null != oImporter)
+            {
+                Dictionary<string, object> dictOptions = new Dictionary<string, object>();
+                dictOptions.Add("Filename", Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\ToLoad.saz");
+
+                Session[] oLoaded = DoImport("SAZ", false, dictOptions, null);
+
+                if ((oLoaded != null) && (oLoaded.Length > 0))
+                {
+                    oAllSessions.AddRange(oLoaded);
+                    Console.WriteLine("Loaded: " + oLoaded.Length + " sessions.");
+                }
+            }
         }
     }
 }
