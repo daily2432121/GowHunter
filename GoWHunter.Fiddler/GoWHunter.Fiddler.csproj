@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LiteFiddlerApp.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Receipe\GoWTHRecipe.cs" />
     <Compile Include="Receipe\IRecipe.cs" />

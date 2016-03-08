@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Dynamic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Principal;
 using Fiddler;
 using GoWHunter.Fiddler;
@@ -21,20 +22,22 @@ namespace GoWHunter.Console
     {
         private static void Main(string[] args)
         {
-            TestRecipe();
+            _handler += Handler;
+            SetConsoleCtrlHandler(_handler, true);
+            TestRecipe(args[0], args[1], int.Parse(args[2]));
 
             //var body = GetLoginBody("QqZ5d1kWkz1D", "GQWLAycpxwFo");
 
         }
 
-        private static void TestRecipe()
+        private static void TestRecipe(string userName, string password, int times)
         {
             FiddlerApplication.Startup(8666, FiddlerCoreStartupFlags.Default);
             FiddlerApplication.oSAZProvider = new DNZSAZProvider();
-            //GoWTHRecipe recipe = new GoWTHRecipe("QqZ5d1kWkz1D", "GQWLAycpxwFo");
-            GoWTHRecipe recipe = new GoWTHRecipe("AnzPk4MLuY29", "KDkuCjLMVLXC");
+            GoWTHRecipe recipe = new GoWTHRecipe(userName, password);
+            //GoWTHRecipe recipe = new GoWTHRecipe("AnzPk4MLuY29", "KDkuCjLMVLXC");
             //GoWTHRecipe recipe = new GoWTHRecipe("9jPPy3DWqZgt", "19yf5dsJ2FQS");
-            recipe.Cook(50, 20, 50);
+            recipe.Cook(10, times, 10);
             FiddlerApplication.Shutdown();
         }
         private static void TestListen()
@@ -143,6 +146,40 @@ namespace GoWHunter.Console
                 user?.Dispose();
             }
             return isAdmin;
+        }
+
+
+        [DllImport("Kernel32")]
+        private static extern bool SetConsoleCtrlHandler(EventHandler handler, bool add);
+
+        private delegate bool EventHandler(CtrlType sig);
+        static EventHandler _handler;
+
+        enum CtrlType
+        {
+            CTRL_C_EVENT = 0,
+            CTRL_BREAK_EVENT = 1,
+            CTRL_CLOSE_EVENT = 2,
+            CTRL_LOGOFF_EVENT = 5,
+            CTRL_SHUTDOWN_EVENT = 6
+        }
+
+        private static bool Handler(CtrlType sig)
+        {
+            if (FiddlerApplication.IsStarted() && !FiddlerApplication.isClosing)
+            {
+                FiddlerApplication.Shutdown();
+            }
+            
+            switch (sig)
+            {
+                case CtrlType.CTRL_C_EVENT:
+                case CtrlType.CTRL_LOGOFF_EVENT:
+                case CtrlType.CTRL_SHUTDOWN_EVENT:
+                case CtrlType.CTRL_CLOSE_EVENT:
+                default:
+                    return false;
+            }
         }
     }
 }
