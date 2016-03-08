@@ -11,7 +11,7 @@ How to use
 7. If you network is borked after running this app, restart this app and close it  
 
 
-# GowHunter - Treasure Hunter Treasure Hunter Console App
+# GowHunter - Treasure Hunter Console App
 Hacks Gems of War treasure hunt mode  
 1. TBD
 
