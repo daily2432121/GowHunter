@@ -52,6 +52,10 @@
     <Reference Include="Ionic.Zip.Reduced">
       <HintPath>..\GoWHunter.Fiddler\Refs\Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -71,6 +75,15 @@
     <None Include="HackList.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Jsons\LoginResult.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Jsons\Runes.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Jsons\World.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Sazs\buy_glory.saz">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -87,7 +100,12 @@
       <Project>{934000D5-63FB-4BA9-A61F-FA2D000DBE3F}</Project>
       <Name>GoWHunter.Fiddler</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GoWHunter.World\GoWHunter.World.csproj">
+      <Project>{CCDAB54E-C6F7-4398-B7EF-421A137FACBF}</Project>
+      <Name>GoWHunter.World</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
