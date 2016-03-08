@@ -8,6 +8,7 @@ namespace GoWHunter.Fiddler.Receipe
     
     interface IRecipe
     {
+        string Name { get; }
         void AddStep(Action action);
         void Cook(int intervalBetweenEachRun, int repeatTimes, int intervalBetweenEachStep);
     }
