@@ -24,17 +24,17 @@ namespace GoWHunter.Console
         {
             _handler += Handler;
             SetConsoleCtrlHandler(_handler, true);
-            TestRecipe(args[0], args[1], int.Parse(args[2]));
+            TestRecipe(args[0], args[1], int.Parse(args[2]), int.Parse(args[3]));
 
             //var body = GetLoginBody("QqZ5d1kWkz1D", "GQWLAycpxwFo");
 
         }
 
-        private static void TestRecipe(string userName, string password, int times)
+        private static void TestRecipe(string userName, string password, int runesForEachTime, int times)
         {
             FiddlerApplication.Startup(8666, FiddlerCoreStartupFlags.Default);
             FiddlerApplication.oSAZProvider = new DNZSAZProvider();
-            GoWTHRecipe recipe = new GoWTHRecipe(userName, password);
+            GoWTHRecipe recipe = new GoWTHRecipe(userName, password, runesForEachTime);
             //GoWTHRecipe recipe = new GoWTHRecipe("AnzPk4MLuY29", "KDkuCjLMVLXC");
             //GoWTHRecipe recipe = new GoWTHRecipe("9jPPy3DWqZgt", "19yf5dsJ2FQS");
             recipe.Cook(10, times, 10);

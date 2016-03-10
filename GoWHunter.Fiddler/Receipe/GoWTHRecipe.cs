@@ -6,7 +6,7 @@ namespace GoWHunter.Fiddler.Receipe
     {
         private string _userName;
         private string _password;
-        public GoWTHRecipe(string userName, string password)
+        public GoWTHRecipe(string userName, string password, int runes)
         {
             //AddStep(() =>
             //{
@@ -24,7 +24,7 @@ namespace GoWHunter.Fiddler.Receipe
 
             AddStep(() =>
             {
-                SessionTamper.SessionTamper tamper = new SessionTamper.SessionTamper(new GoWTHDecorator(userName, password));
+                SessionTamper.SessionTamper tamper = new SessionTamper.SessionTamper(new GoWTHDecorator(userName, password, runes));
                 TamperSender sender = new TamperSender(tamper);
                 sender.ReadTampAndSend("submit_loot.saz");
             });

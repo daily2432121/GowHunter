@@ -13,7 +13,7 @@ namespace GoWHunter.Fiddler.SessionDecorator
 
     public class GoWTHDecorator : ReplaceTagsInRequestDecorator
     {
-        public GoWTHDecorator(string userName, string password, long clientUnixTicks = 0)
+        public GoWTHDecorator(string userName, string password, int runes, long clientUnixTicks = 0)
         {
             if (clientUnixTicks == 0)
             {
@@ -23,7 +23,8 @@ namespace GoWHunter.Fiddler.SessionDecorator
             {
                 {"UserName", userName},
                 {"Password", password},
-                {"ClientUnixTicks", clientUnixTicks.ToString()}
+                {"ClientUnixTicks", clientUnixTicks.ToString()},
+                {"RunesGained", runes.ToString()}
             };
             Dict = dict;
         }
