@@ -26,8 +26,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{
 		PublishScripts\Templates\GoWHunterMVC.param.dev.json = PublishScripts\Templates\GoWHunterMVC.param.dev.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoWHunter.WebJob", "GoWHunter.WebJob\GoWHunter.WebJob.csproj", "{AD8B71AD-969C-4064-93B0-A1BA85CE692F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,10 +52,6 @@ Global
 		{D945037C-1F80-4048-9585-80B9CDEA2EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D945037C-1F80-4048-9585-80B9CDEA2EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D945037C-1F80-4048-9585-80B9CDEA2EBF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD8B71AD-969C-4064-93B0-A1BA85CE692F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD8B71AD-969C-4064-93B0-A1BA85CE692F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD8B71AD-969C-4064-93B0-A1BA85CE692F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD8B71AD-969C-4064-93B0-A1BA85CE692F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
