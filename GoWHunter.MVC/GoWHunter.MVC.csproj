@@ -288,6 +288,8 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\Calculator\Index.cshtml" />
     <Content Include="Views\Calculator\Statistics.cshtml" />
+    <Content Include="Views\Shared\AdView.cshtml" />
+    <Content Include="Views\Shared\_Donate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
