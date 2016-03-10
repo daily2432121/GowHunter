@@ -15,15 +15,15 @@ How to use
 Hacks Gems of War treasure hunt mode in super zuosi mode  
 How to use  
 1. Download from https://github.com/daily2432121/GowHunter/blob/master/releases/Console/latest.zip?raw=true  
-2. Start GoWHunter.Console in cmd, pass your username hash, password hash and treasure hunt times  
+2. Start GoWHunter.Console in cmd, pass your username hash, password hash, rune count for each time and treasure hunt times  
 3. Wait the console to finish  
 4. Login your game, check result  
 
 
-> e.g. GoWHunter.Console "ABVjei2ni2" "Uhu2e4b9uD" 50  
+> e.g. GoWHunter.Console "ABVjei2ni2" "Uhu2e4b9uD" 50 1000  
 > The user name and password hash can be found in your %AppData%\com.infinite-interactive.GoW\Local Store\backup\UserSteam.json file  
 
   
-![Console zuosi pic](https://raw.githubusercontent.com/daily2432121/GowHunter/master/Demo/Consolepic1.PNG)
+
 
 
