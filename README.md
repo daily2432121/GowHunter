@@ -24,7 +24,7 @@ How to use
 > The user name and password hash can be found in your %AppData%\com.infinite-interactive.GoW\Local Store\backup\UserSteam.json file  
 
 # GowHunter - Drop rate table
-Deployed at gow.mengmeizi.com
+Deployed at http://gow.mengmeizi.com
   
 
 
