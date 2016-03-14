@@ -56,9 +56,11 @@ namespace GoWHunter.MVC
 
                         lock (_lock)
                         {
-                            _instance = newData;
+                            if (newData.CalculationResult != null)
+                            {
+                                _instance = newData;
+                            }
                         }
-
                     }
                 }
                 Thread.Sleep(TimeSpan.FromSeconds(300));
@@ -79,6 +81,7 @@ namespace GoWHunter.MVC
                     _runeFilePath = HttpContext.Current.Server.MapPath(@"~\Jsons\Runes.json");
                 }
                 WorldParser world = new WorldParser(_worldFilePath);
+
                 LoginResultParser loginResult = new LoginResultParser(body, true);
                 LocalizationParser dict = new LocalizationParser(_runeFilePath);
                 DropRateCalculator calc = new DropRateCalculator();
@@ -107,7 +110,7 @@ namespace GoWHunter.MVC
             catch (Exception ex)
             {
                 Trace.WriteLine(ex);
-                throw;
+                CalculationResult = null;
             }
             
         }

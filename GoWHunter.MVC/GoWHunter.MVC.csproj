@@ -290,6 +290,7 @@
     <Content Include="Views\Calculator\Index.cshtml" />
     <Content Include="Views\Calculator\Statistics.cshtml" />
     <Content Include="Views\Shared\_Ad.cshtml" />
+    <Content Include="Views\Shared\_Donate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
