@@ -17,7 +17,7 @@ namespace GoWHunter.MVC.Controllers
         {
             var result = Backgrounder.Instance.CalculationResult;
             ViewBag.DropTable = result;
-            ViewBag.LastUpdated = Backgrounder.LastUpdated;
+            ViewBag.LastUpdated = Backgrounder.LastUpdated.ToString("o");
             return View();
         }
     }

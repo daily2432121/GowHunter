@@ -8,23 +8,23 @@
 
 <input hidden value="@ViewBag.LastUpdated" id="serverTime"/>
 <div class="btn-group" id="checkChestsGroup" data-toggle="buttons">
-    <label class="btn btn-primary active" id="checkAllChests" chest ="">
-        <input type="radio" name="chestOptions"  autocomplete="off" checked> All Chests
+    <label class="btn btn-primary active" id="checkAllChests" chest="">
+        <input type="radio" name="chestOptions" autocomplete="off" checked> All Chests
     </label>
     <label class="btn btn-primary" id="checkGoldChest" chest="Gold">
-        <input type="radio" name="chestOptions"  autocomplete="off"> Gold Chest
+        <input type="radio" name="chestOptions" autocomplete="off"> Gold Chest
     </label>
     <label class="btn btn-primary" id="checkGloryChest" chest="Glory">
-        <input type="radio" name="chestOptions"  autocomplete="off"> Glory Chest
+        <input type="radio" name="chestOptions" autocomplete="off"> Glory Chest
     </label>
     <label class="btn btn-primary" id="checkGemChest" chest="Gem">
-        <input type="radio" name="chestOptions"  autocomplete="off"> Gem Chest
+        <input type="radio" name="chestOptions" autocomplete="off"> Gem Chest
     </label>
     <label class="btn btn-primary" id="checkEventChest" chest="Event">
-        <input type="radio" name="chestOptions"  autocomplete="off"> Event Chest
+        <input type="radio" name="chestOptions" autocomplete="off"> Event Chest
     </label>
     <label class="btn btn-primary" id="checkVIPChest" chest="VIP">
-        <input type="radio" name="chestOptions"  autocomplete="off"> VIP Chest
+        <input type="radio" name="chestOptions" autocomplete="off"> VIP Chest
     </label>
 
 </div>
@@ -126,6 +126,9 @@
     @section Scripts {
         @Scripts.Render("~/bundles/jquery")
         <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.6/jstz.js"></script>
+        <script src="http://www.geoplugin.net/javascript.gp"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"/>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.1.0/css/buttons.dataTables.min.css"/>
         <script>
@@ -165,6 +168,22 @@
                 $("#LocalTimeMsg").text("Last Updated: "+ date.toString());
             });
 
+            function GetLastUpdatedTimeMsg(serverTimeString) {
+                var timezone = jstz.determine().name();
+                var localTime = moment.utc(serverTimeString).toDate();
+                localTime = moment(localTime).format('YYYY-MM-DD HH:mm:ss');
+                return "Last Updated: " + localTime.toString() + " " + timezone;
+            }
 
-        </script>
+            function GetGeoLocationMsg() {
+                
+                var country = geoplugin_countryName();
+                var zone = geoplugin_region();
+                var district = geoplugin_city();
+                return ("You are spotted at: " + country + ", " + zone + ", " + district);
+                
+            }
+
+
+</script>
     }
