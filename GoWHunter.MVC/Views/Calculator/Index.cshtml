@@ -6,7 +6,7 @@
 <h2>Welcome to @ViewBag.Title</h2>
 <h3 id="LocalTimeMsg"></h3>
 
-<input hidden value="@ViewBag.LastUpdated" id="UtcTime"/>
+<input hidden value="@ViewBag.LastUpdated" id="serverTime"/>
 <div class="btn-group" id="checkChestsGroup" data-toggle="buttons">
     <label class="btn btn-primary active" id="checkAllChests" chest ="">
         <input type="radio" name="chestOptions"  autocomplete="off" checked> All Chests
@@ -81,6 +81,15 @@
     </tr>
     </tfoot>
     <tbody>
+        @if (ViewBag.DropTable == null)
+        {
+            string noData = "No Data";
+            ViewBag.DropTable = new List<dynamic>()
+            {
+
+                new { ChestNumber = noData, Chest = noData, Name= noData, Type=noData, Expectation=noData, Stars = noData}
+            };
+        }
         @foreach (var item in ViewBag.DropTable)
         {
 
@@ -151,8 +160,8 @@
                     table.column(1).search(this.getAttribute("chest")).draw();
                 });
 
-                var utcTime = $("#UtcTime").val();
-                var date = new Date(utcTime);
+                var serverTime = $("#serverTime").val();
+                var date = new Date(serverTime);
                 $("#LocalTimeMsg").text("Last Updated: "+ date.toString());
             });
 

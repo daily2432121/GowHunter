@@ -49,7 +49,7 @@ namespace GoWHunter.MVC
             {
                 lock (_lock)
                 {
-                    if (DateTime.UtcNow - LastUpdated >= TimeSpan.FromSeconds(300))
+                    if (DateTime.Now - LastUpdated >= TimeSpan.FromSeconds(300))
                     {
                         Backgrounder newData = new Backgrounder();
                         newData.Load();
@@ -105,7 +105,7 @@ namespace GoWHunter.MVC
                     output.Add(e);
                 }
                 CalculationResult =  output;
-                LastUpdated = DateTime.UtcNow;
+                LastUpdated = DateTime.Now;
             }
             catch (Exception ex)
             {
@@ -117,7 +117,7 @@ namespace GoWHunter.MVC
 
         private static long GetTicks()
         {
-            return (long)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            return (long)DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
         }
 
         private string GetLoginBody(string userName, string pwd)
