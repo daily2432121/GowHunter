@@ -1,4 +1,5 @@
-﻿using GoWHunter.Fiddler.SessionDecorator;
+﻿using System;
+using GoWHunter.Fiddler.SessionDecorator;
 
 namespace GoWHunter.Fiddler.Receipe
 {
@@ -6,6 +7,17 @@ namespace GoWHunter.Fiddler.Receipe
     {
         private string _userName;
         private string _password;
+
+        public override string Name
+        {
+            get
+            {
+                return "Treasure Hunt";
+            }
+
+            
+        }
+
         public GoWTHRecipe(string userName, string password, int runes)
         {
             //AddStep(() =>
@@ -31,5 +43,26 @@ namespace GoWHunter.Fiddler.Receipe
         }
 
         
+    }
+
+    public class PvPRecipe : Recipe
+    {
+        public PvPRecipe(string userName, string password, string opponentName)
+        {
+            AddStep(() =>
+            {
+                SessionTamper.SessionTamper tamper = new SessionTamper.SessionTamper(new PvPDecorator(userName, password, opponentName));
+                TamperSender sender = new TamperSender(tamper);
+                sender.ReadTampAndSend("pvp.saz");
+            });
+        }
+
+        public override string Name
+        {
+            get
+            {
+                return "PVP";
+            }
+        }
     }
 }

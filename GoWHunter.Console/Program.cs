@@ -40,6 +40,19 @@ namespace GoWHunter.Console
             recipe.Cook(10, times, 10);
             FiddlerApplication.Shutdown();
         }
+
+
+        private static void TestPvpRecipe(string userName, string password, string opponentName, int times)
+        {
+            FiddlerApplication.Startup(8666, FiddlerCoreStartupFlags.Default);
+            FiddlerApplication.oSAZProvider = new DNZSAZProvider();
+            PvPRecipe recipe = new PvPRecipe(userName, password, opponentName);
+            //GoWTHRecipe recipe = new GoWTHRecipe("AnzPk4MLuY29", "KDkuCjLMVLXC");
+            //GoWTHRecipe recipe = new GoWTHRecipe("9jPPy3DWqZgt", "19yf5dsJ2FQS");
+            recipe.Cook(1000, times, 10);
+            FiddlerApplication.Shutdown();
+        }
+
         private static void TestListen()
         {
             if (!IsUserAdministrator())

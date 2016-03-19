@@ -90,6 +90,9 @@
     <None Include="Sazs\buy_glory.saz">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Sazs\pvp.saz">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Sazs\start_loot.saz">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

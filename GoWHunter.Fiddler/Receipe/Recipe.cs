@@ -4,14 +4,12 @@ using System.Threading;
 
 namespace GoWHunter.Fiddler.Receipe
 {
-    public class Recipe : IRecipe
+    public abstract class Recipe : IRecipe
     {
         public List<Action> _actions = new List<Action>();
 
-        public string Name
-        {
-            get { return "Treasure Hunt"; }
-        }
+        public abstract string Name { get;}
+        
 
         public void AddStep(Action action)
         {

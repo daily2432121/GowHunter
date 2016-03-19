@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using Fiddler;
 using static Fiddler.FiddlerApplication;
+using System.Text.RegularExpressions;
 
 namespace GoWHunter.Fiddler
 {
@@ -52,13 +53,14 @@ namespace GoWHunter.Fiddler
                 foreach (var item in set.ReplaceItems)
                 {
                     var hackString = item.ReplaceWith;
-                    var regex = item.RegEx;
+                    var regexStr = item.RegEx;
                     var keyword = item.Keyword;
                     if (!oSession.uriContains(callFunctionUrl)) continue;
                     if (!body.Contains(keyword) || body.Contains(hackString))
                     {
                         return;
                     }
+                    Regex regex = new Regex(regexStr);
                     body = regex.Replace(body, hackString);
                 }
             }
